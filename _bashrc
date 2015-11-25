@@ -35,8 +35,8 @@ alias calendar='vim -c Calendar'
 #
 alias gitclean='git co master; git pull; git remote prune origin; git branch -d $(git branch --merged | grep -v master | grep -v '\''*'\'')'
 alias gitdev='git co development; git pull; git remote prune origin; git branch -d $(git branch --merged | grep -v development | grep -v '\''*'\'')'
-source ~/.git-completion.bash
-source ~/.git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-prompt.sh
 PS1="\h@\u:\W\$(__git_ps1) \$ "
 
 
@@ -62,7 +62,8 @@ export PYTHONSTARTUP=~/.pythonrc
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-source `which virtualenvwrapper.sh`
+
+[[ -s `which virtualenvwrapper.sh` ]] && source `which virtualenvwrapper.sh`
 
 # pythonz
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
@@ -73,7 +74,7 @@ source `which virtualenvwrapper.sh`
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+[[ -s `which rbenv` ]] && eval "$(rbenv init -)"
 alias be='rbenv exec bundle exec'
 alias buni='rbenv exec bundle install --path vendor/bundler'
 
