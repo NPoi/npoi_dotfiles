@@ -1,38 +1,47 @@
 # viモードへ切り替え
 set -o vi
+export EDITOR='vim'
 
 # Mac時の設定
 if [ `uname` = "Darwin" ]; then
-  alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
-  alias vi='vim'
-  alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim --remote-tab-silent'
-  export PATH=/usr/local/sbin:/usr/local/Cellar/postgresql/9.3.5_1/bin:/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:$PATH
-  export SUDO_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
-#elif [ `uname` = "Linux" ]; then
-  export SUDO_EDITOR=vim
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+    alias vi='vim'
+    alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim --remote-tab-silent'
+    export PATH=/usr/local/sbin:/usr/local/Cellar/postgresql/9.3.5_1/bin:/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:$PATH
+    export SUDO_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+    export SUDO_EDITOR=vim
+
+    alias pwgen12='pwgen -sy 12 1'
+    alias pwgen32='pwgen -sy 32 1'
+
+    alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+        . `brew --prefix`/etc/bash_completion
+    fi
 fi
 
-# mac
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-
-if [ -e "usr/local/bin/aws_completer" ]; then
+if [ -e "/usr/local/bin/aws_completer" ]; then
     complete -C '/usr/local/bin/aws_completer' aws
+fi
 
 alias ls='ls -F -G'
-alias calendar='vim -c Calendar'
-alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
-alias be='rbenv exec bundle exec'
-alias buni='rbenv exec bundle install --path vendor/bundler'
+alias ll='ls -l'
 
+alias calendar='vim -c Calendar'
+
+
+# 
+# git
+#
 alias gitclean='git co master; git pull; git remote prune origin; git branch -d $(git branch --merged | grep -v master | grep -v '\''*'\'')'
 alias gitdev='git co development; git pull; git remote prune origin; git branch -d $(git branch --merged | grep -v development | grep -v '\''*'\'')'
+source ~/.git-completion.bash
+source ~/.git-prompt.sh
+PS1="\h@\u:\W\$(__git_ps1) \$ "
 
-alias pwgen12='pwgen -sy 12 1'
-alias pwgen32='pwgen -sy 32 1'
 
-alias rsync='rsync --rsync-path='\''sudo rsync'\'' -e '\''ssh -t'\'
+# rsync
+alias ssync='rsync --rsync-path='\''sudo rsync'\'' -e '\''ssh -t'\'
 
 # sudoedit コマンドがなければ設定
 SUDOEDIT_PATH=`which sudoedit`
@@ -40,31 +49,40 @@ if [ -z $SUDOEDIT_PATH ]; then
   alias sudoedit='sudo -e'
 fi
 
-alias ll='ls -l'
-
 source ~/.alias.ssh
 
 eval `ssh-agent` > /dev/null 2>&1
 
+#
+# python
+#
+export PYTHONSTARTUP=~/.pythonrc
+#export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+
+# virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 source `which virtualenvwrapper.sh`
 
+# pythonz
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
+#
+# ruby
+# 
+
+# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+alias be='rbenv exec bundle exec'
+alias buni='rbenv exec bundle install --path vendor/bundler'
 
-# export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-export EDITOR='vim'
 
-export PYTHONSTARTUP=~/.pythonrc
-
+#
+# golang
+#
 export GOPATH=~/gopath
 
-source ~/.git-completion.bash
-source ~/.git-prompt.sh
-PS1="\h@\u:\W\$(__git_ps1) \$ "
 
 # ヒストリーの数
 HISTSIZE=50000

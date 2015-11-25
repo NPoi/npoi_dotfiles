@@ -1,0 +1,25 @@
+[user]
+	name = 
+	email = 
+[core]
+	excludesfile = /Users/nakaharadaisuke/.gitignore_global
+	editor = vim -c \"set fenc=utf-8\"
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
+[diff]
+    external = git_diff_wrapper
+[pager]
+    diff =
+
