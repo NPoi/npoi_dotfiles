@@ -7,7 +7,7 @@ if [ `uname` = "Darwin" ]; then
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias vi='vim'
     alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim --remote-tab-silent'
-    export PATH=/usr/local/sbin:/usr/local/Cellar/postgresql/9.3.5_1/bin:/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:$PATH
+    export PATH=$HOME/bin:/usr/local/sbin:/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:$PATH
     export SUDO_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
     export SUDO_EDITOR=vim
 

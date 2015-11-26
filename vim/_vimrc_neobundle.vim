@@ -112,9 +112,6 @@ NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'scrooloose/syntastic'
 
 " その他
-NeoBundle 'mattn/vim-metarw'
-NeoBundle 'mattn/vim-metarw-redmine'
-
 NeoBundle 'rbtnn/rabbit-ui.vim'
 NeoBundle 'rbtnn/rabbit-ui-collection.vim'
 
