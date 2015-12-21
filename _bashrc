@@ -35,8 +35,18 @@ alias calendar='vim -c Calendar'
 #
 alias gitclean='git co master; git pull; git remote prune origin; git branch -d $(git branch --merged | grep -v master | grep -v '\''*'\'')'
 alias gitdev='git co development; git pull; git remote prune origin; git branch -d $(git branch --merged | grep -v development | grep -v '\''*'\'')'
-source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -e "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
+    source /usr/local/etc/bash_completion.d/git-completion.bash
+elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash" ]; then
+    source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+fi
+
+if [ -e "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
+    source /usr/local/etc/bash_completion.d/git-prompt.sh
+elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ]; then
+    source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+fi
+
 PS1="\h@\u:\W\$(__git_ps1) \$ "
 
 
