@@ -59,7 +59,9 @@ if [ -z $SUDOEDIT_PATH ]; then
   alias sudoedit='sudo -e'
 fi
 
-source ~/.alias.ssh
+if [ -e "~/.alias.ssh" ]; then
+    source ~/.alias.ssh
+fi
 
 eval `ssh-agent` > /dev/null 2>&1
 
