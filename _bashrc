@@ -92,7 +92,7 @@ alias buni='rbenv exec bundle install --path vendor/bundler'
 #
 # golang
 #
-export GOPATH=~/gopath
+export GOPATH=~/golang
 
 
 # ヒストリーの数
