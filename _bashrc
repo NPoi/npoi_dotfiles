@@ -71,7 +71,7 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 
 [[ -s `which virtualenvwrapper.sh` ]] && source `which virtualenvwrapper.sh`
 
