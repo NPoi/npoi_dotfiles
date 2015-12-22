@@ -102,13 +102,10 @@ function! Git_branch()
     endif
 endfunction
 
-" redmine対応
-let g:metarw_redmine_server = 'http://redmine.npoi.me/'
-let g:metarw_redmine_apikey = 'd1040b2bc7e7484144289b5097af2a8bef983145'
-
-scriptencoding utf-8
 
 " syntastic
 let g:syntastic_python_checkers = ["flake8"]
 
 set backupskip=/tmp/*,/private/tmp/*
+
+scriptencoding utf-8
