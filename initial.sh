@@ -4,8 +4,10 @@ set -x
 
 cd $HOME
 
+git clone git@github.com:NPoi/npoi_dotfiles.git npoi_dotfiles
+
 ln -s npoi_dotfiles/bin bin
-git clone git@github.com:NPoi/dotfiles.git npoi_dotfiles
+ln -s npoi_dotfiles/_bashrc_profile .bash_profile
 ln -s npoi_dotfiles/_bashrc .bashrc
 ln -s npoi_dotfiles/_vimrc .vimrc
 ln -s npoi_dotfiles/_gvimrc .gvimrc
