@@ -13,4 +13,6 @@ ln -s npoi_dotfiles/_gvimrc .gvimrc
 mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
-mkdir -p ~/golang
+mkdir -p ~/usr/local/src
+mkdir -p ~/usr/local/bin
+mkdir -p ~/usr/local/pkg
