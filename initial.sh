@@ -4,6 +4,7 @@ set -x
 
 cd $HOME
 
+ln -s npoi_dotfiles/bin bin
 git clone git@github.com:NPoi/dotfiles.git npoi_dotfiles
 ln -s npoi_dotfiles/_bashrc .bashrc
 ln -s npoi_dotfiles/_vimrc .vimrc
