@@ -1,0 +1,12 @@
+#!/bin/sh
+
+BRANCH=${1:-"development"}
+git checkout ${BRANCH}
+git pull
+git remote prune origin
+DEL_BRANCH=`git branch --merged | grep -v ${BRANCH} | grep -v \'*\'`
+if [ -n "$DEL_BRANCH" ]
+then
+    echo 'テスト'
+    git branch -d $DEL_BRANCH
+fi

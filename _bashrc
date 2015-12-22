@@ -33,11 +33,9 @@ alias calendar='vim -c Calendar'
 # 
 # git
 #
-alias gitclean='git co master; git pull; git remote prune origin; git branch -d $(git branch --merged | grep -v master | grep -v '\''*'\'')'
-alias gitdev='git co development; git pull; git remote prune origin; git branch -d $(git branch --merged | grep -v development | grep -v '\''*'\'')'
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
-PS1="\h@\u:\W\$(__git_ps1) \$ "
+PS1="\w\n\h@\u:\W\$(__git_ps1) \$ "
 
 
 # rsync
@@ -61,7 +59,7 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 
 [[ -s `which virtualenvwrapper.sh` ]] && source `which virtualenvwrapper.sh`
 
