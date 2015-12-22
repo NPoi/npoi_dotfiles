@@ -35,6 +35,17 @@ alias calendar='vim -c Calendar'
 #
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -e "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
+    source /usr/local/etc/bash_completion.d/git-completion.bash
+elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash" ]; then
+    source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+fi
+
+if [ -e "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
+    source /usr/local/etc/bash_completion.d/git-prompt.sh
+elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ]; then
+    source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+fi
 PS1="\w\n\h@\u:\W\$(__git_ps1) \$ "
 
 
@@ -47,7 +58,9 @@ if [ -z $SUDOEDIT_PATH ]; then
   alias sudoedit='sudo -e'
 fi
 
-source ~/.alias.ssh
+if [ -e "~/.alias.ssh" ]; then
+    source ~/.alias.ssh
+fi
 
 eval `ssh-agent` > /dev/null 2>&1
 
@@ -80,7 +93,7 @@ alias buni='rbenv exec bundle install --path vendor/bundler'
 #
 # golang
 #
-export GOPATH=~/gopath
+export GOPATH=~/golang
 
 
 # ヒストリーの数
