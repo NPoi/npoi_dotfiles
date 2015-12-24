@@ -79,6 +79,7 @@ NeoBundle 'tpope/vim-surround'
 
 " syntaxes/languages
 " ---------
+NeoBundle 'fatih/vim-go'
 NeoBundle 'aohta/blockdiag.vim'
 NeoBundle 'othree/html5.vim'                    " html5
 NeoBundle 'vim-scripts/nginx.vim'               " nginx設定ファイル
