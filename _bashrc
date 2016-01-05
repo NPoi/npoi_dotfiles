@@ -33,8 +33,6 @@ alias calendar='vim -c Calendar'
 # 
 # git
 #
-source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/etc/bash_completion.d/git-prompt.sh
 if [ -e "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
     source /usr/local/etc/bash_completion.d/git-completion.bash
 elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash" ]; then
@@ -46,7 +44,7 @@ if [ -e "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
 elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ]; then
     source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 fi
-PS1="\w\n\h@\u:\W\$(__git_ps1) \$ "
+PS1="\h@\w\n\D{%Y/%m/%d %a} \t\$(__git_ps1) \$ "
 
 
 # rsync
