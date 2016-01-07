@@ -42,7 +42,7 @@ if [ -e "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
 elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ]; then
     source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 fi
-PS1="[\h@\w]\n\D{%Y/%m/%d %a} \t\$(__git_ps1) \$ "
+PS1="[\h@\w]\n\D{%Y/%m/%d} \t\$(__git_ps1) \$ "
 
 
 # rsync
