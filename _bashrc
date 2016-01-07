@@ -20,9 +20,7 @@ if [ `uname` = "Darwin" ]; then
     fi
 fi
 
-if [ -e "/usr/local/bin/aws_completer" ]; then
-    complete -C '/usr/local/bin/aws_completer' aws
-fi
+[[ -e "/usr/local/bin/aws_completer" ]] && complete -C '/usr/local/bin/aws_completer' aws
 
 alias ls='ls -F -G'
 alias ll='ls -l'
@@ -52,13 +50,8 @@ alias ssync='rsync --rsync-path='\''sudo rsync'\'' -e '\''ssh -t'\'
 
 # sudoedit コマンドがなければ設定
 SUDOEDIT_PATH=`which sudoedit`
-if [ -z $SUDOEDIT_PATH ]; then
-  alias sudoedit='sudo -e'
-fi
-
-if [ -e "~/.alias.ssh" ]; then
-    source ~/.alias.ssh
-fi
+[[ -z $SUDOEDIT_PATH ]] && alias sudoedit='sudo -e'
+[[ -e "~/.alias.ssh" ]] && source ~/.alias.ssh
 
 eval `ssh-agent` > /dev/null 2>&1
 
