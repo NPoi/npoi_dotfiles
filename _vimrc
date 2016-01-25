@@ -66,23 +66,28 @@ if !exists('b:quickrun_config')
   let g:quickrun_config = {}
 endif
 
-let g:quickrun_config["-"] = {
-            \     "runner" : "vimproc",
-            \     "runner/vimproc/updatetime" : 60
-            \   }
-
 let g:quickrun_config["markdown"] = {
             \     'type': 'markdown/gfm',
             \     'outputter': 'browser'
             \   }
 
+let g:quickrun_config["html"] = {
+            \     'command': 'open',
+            \   }
 
-let g:quickrun_config['html'] = {
-            \     'exec': 'start cmd /c %s',
-            \     'shellcmd': '!%s',
-            \ }
+" markdown
+let g:vim_markdown_folding_disabled=1
 
+" quote syntax in markdown
 
+let g:markdown_quote_syntax_filetypes = {
+        \ "sh" : {
+        \   "start" : "\\%(bash\\|sh\\)",
+        \},
+        \ "python" : {
+        \   "start" : "python",
+        \},
+  \}
 
 " nginx
 autocmd BufNewFile,BufRead */nginx/*.conf set ft=nginx

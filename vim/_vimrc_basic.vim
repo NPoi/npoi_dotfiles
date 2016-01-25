@@ -12,6 +12,7 @@ set expandtab
 set nowrap
 set ambiwidth=double
 set mouse=a
+set notitle
 
 set listchars=eol:¬,tab:▸\
 
