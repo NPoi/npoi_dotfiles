@@ -3,7 +3,7 @@
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc) - Vim7用試作
 "
-" Last Change: 23-Jan-2016.
+" Last Change: 12-Feb-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -73,7 +73,7 @@ if has('win32') || has('win64')
   set guifont=Ricty_Discord_for_Powerline:h12:w5
   set guifontwide=Ricty\ Discord\ for\ Powerline:h12
   " 行間隔の設定
-  set linespace=1
+  set linespace=2
   " 一部のUCS文字の幅を自動計測して決める
   if has('kaoriya')
     set ambiwidth=auto
@@ -84,6 +84,7 @@ elseif has('gui_macvim')
   " set guifont=Ricty\ Discord\ Regular\ for\ Powerline:h16
   set guifont=Inconsolata:h16
   set guifontwide=源ノ角ゴシック_Code_JP_L:h16
+  set linespace=2
   " set guifontwide=源ノ角ゴシック\ Code\ JP\ M:h12
 
 elseif has('xfontset')

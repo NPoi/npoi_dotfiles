@@ -1,5 +1,6 @@
 " 基本設定
 set number
+set modeline
 set laststatus=2
 set ignorecase
 set smartcase
