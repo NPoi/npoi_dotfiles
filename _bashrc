@@ -42,7 +42,9 @@ if [ -e "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
 elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ]; then
     source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 fi
-PS1="[\h@\w]\n\D{%Y/%m/%d} \t\$(__git_ps1) \$ "
+PS1="\D{%Y/%m/%d} \t\n[\h@\w]\$(__git_ps1) \$ "
+
+alias gitroot='cd `(git rev-parse --show-toplevel)`'
 
 
 # rsync
@@ -51,7 +53,7 @@ alias ssync='rsync --rsync-path='\''sudo rsync'\'' -e '\''ssh -t'\'
 # sudoedit コマンドがなければ設定
 SUDOEDIT_PATH=`which sudoedit`
 [[ -z $SUDOEDIT_PATH ]] && alias sudoedit='sudo -e'
-[[ -e "~/.alias.ssh" ]] && source ~/.alias.ssh
+[[ -e "~/.aliases" ]] && source ~/.aliases
 
 eval `ssh-agent` > /dev/null 2>&1
 
@@ -108,3 +110,7 @@ function share_history {
 }
 PROMPT_COMMAND='share_history'
 shopt -u histappend
+
+alias ssh='cat ~/.ssh/config.d/config ~/.ssh/config.d/config.wci > ~/.ssh/config; ssh'
+
+alias lman='docker run --rm -it man man'
