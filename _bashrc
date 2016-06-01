@@ -7,7 +7,7 @@ if [ `uname` = "Darwin" ]; then
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias vi='vim'
     alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim --remote-tab-silent'
-    export PATH=$HOME/bin:$HOME/usr/local/bin:/usr/local/sbin:/Applications/MacVim.app/Contents/MacOS:/usr/local/bin:$PATH
+    export PATH=$HOME/bin:$HOME/usr/local/bin:/usr/local/sbin:/Applications/MacVim.app/Contents/MacOS:/Users/npoi/Library/Android/sdk/platform-tools:/usr/local/bin:$PATH
     export SUDO_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
     export SUDO_EDITOR=vim
 
@@ -42,8 +42,19 @@ if [ -e "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
 elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ]; then
     source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 fi
-PS1="[\h@\w]\n\D{%Y/%m/%d} \t\$(__git_ps1) \$ "
-
+# PS1="\[\e[40m\e[0;40m\][\h@\w]\[\e[0m\]\n\D{%Y/%m/%d} \t\$(__git_ps1) \$ "
+PS1="\
+    \[\e[37m\]\t>\[\e[00m\] \
+    \[\e[1;35m\]\h\[\e[00m\] \
+    [\[\e[1;4;33m\]\w\[\e[00m\]]\n\
+    \`
+if [ \$? = 0 ]; then
+      echo \[\e[1\;32m\];
+  else
+        echo \[\e[1\;31m\];
+    fi
+    \`\
+        \u $ \[\e[00m\]"
 
 # rsync
 alias ssync='rsync --rsync-path='\''sudo rsync'\'' -e '\''ssh -t'\'
