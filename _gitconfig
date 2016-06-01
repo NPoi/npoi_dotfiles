@@ -18,6 +18,7 @@
 	st = status
 	br = branch
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
+    root = rev-parse --show-toplevel
 [diff]
     external = git_diff_wrapper
 [pager]
