@@ -61,6 +61,7 @@ eval `ssh-agent` > /dev/null 2>&1
 # python
 #
 export PYTHONSTARTUP=~/.pythonrc
+export LC_LANG=ja_JP.UTF-8
 #export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
 # virtualenv
@@ -114,3 +115,4 @@ shopt -u histappend
 alias ssh='cat ~/.ssh/config.d/config ~/.ssh/config.d/config.wci > ~/.ssh/config; ssh'
 
 alias lman='docker run --rm -it man man'
+source ~/.iterm2_shell_integration.`basename $SHELL`
