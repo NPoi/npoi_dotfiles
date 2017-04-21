@@ -8,10 +8,22 @@ Vagrant.configure(2) do |config|
     v.linked_clone = true
   end
 
-  config.vm.define :default do |c|
-    c.vm.network "private_network", ip: "192.168.133.90"
+  config.vm.define :app do |c|
+    c.vm.network "private_network", ip: "192.168.133.120"
+    # c.vm.provision :shell, inline: <<-SCRIPT
+    #    echo "test"
+
+    # SCRIPT
   end
 
+  # config.vm.define :db do |c|
+  #  c.vm.network "private_network", ip: "192.168.133.121"
+  #  c.vm.provision :shell, inline: <<-SCRIPT
+  #  SCRIPT
+  #end
+
+
+  # config.vm.provision :shell, :inline => script
   # config.vm.provision :ansible do |ansible|
     # ansible.groups = {
       # "app" => [:app],
