@@ -20,3 +20,5 @@ endfunction
 
 " 新タブでカレンダー 
 command! CalendarTab :tabe +Calendar
+
+command! Markdown :set ft=markdown
