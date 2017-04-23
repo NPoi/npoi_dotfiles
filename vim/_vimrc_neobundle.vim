@@ -56,7 +56,9 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 
 " NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'thinca/vim-visualstar'
 
 " Git
 " ---------
@@ -86,7 +88,8 @@ NeoBundle 'aohta/blockdiag.vim'
 NeoBundle 'othree/html5.vim'                    " html5
 NeoBundle 'vim-scripts/nginx.vim'               " nginx設定ファイル
 NeoBundle 'hail2u/vim-css3-syntax'              " CSS3
-NeoBundle 'rcmdnk/vim-markdown'                 " Markdown
+NeoBundle 'plasticboy/vim-markdown'
+"NeoBundle 'rcmdnk/vim-markdown'                 " Markdown
 "NeoBundle 'tpope/vim-markdown'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mattn/mkdpreview-vim'
@@ -103,6 +106,7 @@ NeoBundleLazy 'hynek/vim-python-pep8-indent', {
             \    },
             \ }
 NeoBundle 'vim-scripts/VOoM'
+NeoBundle 'Glench/Vim-Jinja2-Syntax'
 
 " colorschemes
 NeoBundle 'w0ng/vim-hybrid'                     " hybrid
@@ -121,7 +125,6 @@ NeoBundle 'rbtnn/rabbit-ui-collection.vim'
 NeoBundle 't9md/vim-choosewin'
 
 NeoBundle 'will133/vim-dirdiff'
-NeoBundle 'Glench/Vim-Jinja2-Syntax'
 
 call neobundle#end()
 

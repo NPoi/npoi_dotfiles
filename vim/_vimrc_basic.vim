@@ -15,6 +15,8 @@ set ambiwidth=double
 set mouse=a
 set notitle
 
+set breakindent
+
 set listchars=eol:¬,tab:▸\
 
 set nobackup

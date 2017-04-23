@@ -3,7 +3,7 @@
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc) - Vim7用試作
 "
-" Last Change: 12-Feb-2016.
+" Last Change: 20-Jan-2017.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -84,7 +84,7 @@ elseif has('gui_macvim')
   " set guifont=Ricty\ Discord\ Regular\ for\ Powerline:h16
   set guifont=Inconsolata:h16
   set guifontwide=源ノ角ゴシック_Code_JP_L:h16
-  set linespace=2
+  set linespace=5
   " set guifontwide=源ノ角ゴシック\ Code\ JP\ M:h12
 
 elseif has('xfontset')

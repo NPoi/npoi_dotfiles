@@ -22,7 +22,6 @@ source $HOME/npoi_dotfiles/vim/_vimrc_keymaps.vim
 " カラー関係
 set background=dark
 set t_Co=256
-colorscheme iceberg
 
 
 if has('win64')
@@ -30,7 +29,7 @@ if has('win64')
 endif
 
 
-let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
+let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
 " SonicTemplate設定
 if has("unix")
@@ -75,10 +74,10 @@ let g:quickrun_config["html"] = {
             \     'command': 'open',
             \   }
 
-" markdown
-let g:vim_markdown_folding_disabled=1
-
 " quote syntax in markdown
+"
+" markdown
+let g:vim_markdown_folding_disabled = 1
 
 let g:markdown_quote_syntax_filetypes = {
         \ "sh" : {

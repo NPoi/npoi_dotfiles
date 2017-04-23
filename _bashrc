@@ -6,15 +6,16 @@ export EDITOR='vim'
 if [ `uname` = "Darwin" ]; then
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias vi='vim'
-    alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim --remote-tab-silent'
-    export PATH=$HOME/bin:$HOME/usr/local/bin:/usr/local/sbin:/Applications/MacVim.app/Contents/MacOS:/Users/npoi/Library/Android/sdk/platform-tools:/usr/local/bin:$PATH
+    alias gvim='mvim --remote-tab-silent'
+    export PATH=$HOME/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
     export SUDO_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
     export SUDO_EDITOR=vim
 
     alias pwgen12='pwgen -sy 12 1'
     alias pwgen32='pwgen -sy 32 1'
 
-    alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
+    alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
+
     if [ -f `brew --prefix`/etc/bash_completion ]; then
         . `brew --prefix`/etc/bash_completion
     fi
@@ -74,6 +75,8 @@ eval `ssh-agent` > /dev/null 2>&1
 # python
 #
 export PYTHONSTARTUP=~/.pythonrc
+export LC_LANG=ja_JP.UTF-8
+export PYTHONIOENCODING=UTF-8
 #export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
 # virtualenv
@@ -130,3 +133,4 @@ alias ssh='cat ~/.ssh/config.d/config ~/.ssh/config.d/config.wci > ~/.ssh/config
 # docker
 #
 alias lman='docker run --rm -it man man'
+source ~/.iterm2_shell_integration.`basename $SHELL`
