@@ -6,7 +6,7 @@ export EDITOR='vim'
 if [ `uname` = "Darwin" ]; then
     alias vi='vim'
     export PATH=$HOME/bin:/Applications/MacVim.app/Contents/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
-    export SUDO_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+    export SUDO_EDITOR='vim'
     export SUDO_EDITOR=vim
 
     alias pwgen12='pwgen -sy 12 1'
@@ -26,7 +26,6 @@ alias ll='ls -l'
 
 alias calendar='vim -c Calendar'
 
-alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work 892b3b16b596'
 
 
 # 
@@ -132,5 +131,6 @@ alias ssh='cat ~/.ssh/config.d/config ~/.ssh/config.d/config.wci > ~/.ssh/config
 #
 # docker
 #
+alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work 892b3b16b596'
 alias lman='docker run --rm -it man man'
 source ~/.iterm2_shell_integration.`basename $SHELL`
