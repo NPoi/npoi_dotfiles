@@ -4,10 +4,8 @@ export EDITOR='vim'
 
 # Mac時の設定
 if [ `uname` = "Darwin" ]; then
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias vi='vim'
-    alias gvim='mvim --remote-tab-silent'
-    export PATH=$HOME/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
+    export PATH=$HOME/bin:/Applications/MacVim.app/Contents/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
     export SUDO_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
     export SUDO_EDITOR=vim
 
@@ -27,6 +25,8 @@ alias ls='ls -F -G'
 alias ll='ls -l'
 
 alias calendar='vim -c Calendar'
+
+alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work 892b3b16b596'
 
 
 # 
