@@ -4,9 +4,9 @@ export EDITOR='vim'
 
 # Mac時の設定
 if [ `uname` = "Darwin" ]; then
-    # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias vi='vim'
     export PATH=$HOME/bin:/Applications/MacVim.app/Contents/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
+    export SUDO_EDITOR='vim'
     export SUDO_EDITOR=vim
 
     alias pwgen12='pwgen -sy 12 1'
@@ -27,6 +27,7 @@ alias ll='ls -l'
 alias calendar='vim -c Calendar'
 
 
+
 # 
 # git
 #
@@ -41,11 +42,11 @@ if [ -e "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
 elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ]; then
     source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 fi
-# PS1="\[\e[40m\e[0;40m\][\h@\w]\[\e[0m\]\n\D{%Y/%m/%d} \t\$(__git_ps1) \$ "
+#PS1="\[\e[40m\e[0;40m\][\h@\w]\[\e[0m\]\n\D{%Y/%m/%d} \t\$(__git_ps1) \$ "
 PS1="\
     \[\e[37m\]\t>\[\e[00m\] \
     \[\e[1;35m\]\h\[\e[00m\] \
-    [\[\e[1;4;33m\]\w\[\e[00m\]] $(__git_ps1)\n\
+    [\[\e[1;4;33m\]\w\[\e[00m\]] \n\
     \`
     if [ \$? = 0 ]; then
         echo \[\e[1\;32m\];
@@ -53,7 +54,7 @@ PS1="\
         echo \[\e[1\;31m\];
     fi
     \`\
-        \u $ \[\e[00m\]"
+        \u $(__git_ps1) \$ \[\e[00m\]"
 # PS1="\D{%Y/%m/%d} \t\n[\h@\w]\$(__git_ps1) \$ "
 
 alias gitroot='cd `(git rev-parse --show-toplevel)`'
@@ -130,6 +131,7 @@ alias ssh='cat ~/.ssh/config.d/config ~/.ssh/config.d/config.wci > ~/.ssh/config
 #
 # docker
 #
+alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work 892b3b16b596'
 alias lman='docker run --rm -it man man'
 
 source ~/.iterm2_shell_integration.`basename $SHELL`
