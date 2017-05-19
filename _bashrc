@@ -47,11 +47,11 @@ fi
 PS1="\
     \[\e[37m\]\t>\[\e[00m\] \
     \[\e[1;35m\]\h\[\e[00m\] \
-    [\[\e[1;4;33m\]\w\[\e[00m\]]\n\
+    [\[\e[1;4;33m\]\w\[\e[00m\]] $(__git_ps1)\n\
     \`
-if [ \$? = 0 ]; then
-      echo \[\e[1\;32m\];
-  else
+    if [ \$? = 0 ]; then
+        echo \[\e[1\;32m\];
+    else
         echo \[\e[1\;31m\];
     fi
     \`\
@@ -129,5 +129,8 @@ shopt -u histappend
 
 alias ssh='cat ~/.ssh/config.d/config ~/.ssh/config.d/config.wci > ~/.ssh/config; ssh'
 
+#
+# docker
+#
 alias lman='docker run --rm -it man man'
 source ~/.iterm2_shell_integration.`basename $SHELL`
