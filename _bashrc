@@ -4,11 +4,9 @@ export EDITOR='vim'
 
 # Mac時の設定
 if [ `uname` = "Darwin" ]; then
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+    # alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias vi='vim'
-    alias gvim='mvim --remote-tab-silent'
-    export PATH=$HOME/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
-    export SUDO_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+    export PATH=$HOME/bin:/Applications/MacVim.app/Contents/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
     export SUDO_EDITOR=vim
 
     alias pwgen12='pwgen -sy 12 1'
@@ -133,4 +131,5 @@ alias ssh='cat ~/.ssh/config.d/config ~/.ssh/config.d/config.wci > ~/.ssh/config
 # docker
 #
 alias lman='docker run --rm -it man man'
+
 source ~/.iterm2_shell_integration.`basename $SHELL`
