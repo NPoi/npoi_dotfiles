@@ -54,7 +54,7 @@ PS1="\
         echo \[\e[1\;31m\];
     fi
     \`\
-        \u $(__git_ps1) \$ \[\e[00m\]"
+        \u "'$(__git_ps1)'" $ \[\e[00m\]"
 # PS1="\D{%Y/%m/%d} \t\n[\h@\w]\$(__git_ps1) \$ "
 
 alias gitroot='cd `(git rev-parse --show-toplevel)`'
