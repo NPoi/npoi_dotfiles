@@ -97,6 +97,7 @@ NeoBundle 'elzr/vim-json'                       " JSON
 NeoBundle 'leafgarland/typescript-vim'          " TypeScript
 NeoBundle 'kchmck/vim-coffee-script'            " CoffeeScript
 NeoBundle 'tpope/vim-haml'                      " Haml
+NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'chase/vim-ansible-yaml'              " YAML for Ansible
 NeoBundle 'rodjek/vim-puppet'                   " Puppet DSL
 NeoBundle 'python_fold'

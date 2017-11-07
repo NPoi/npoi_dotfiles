@@ -114,3 +114,8 @@ let g:syntastic_python_flake8_args="--max-line-length=120"
 set backupskip=/tmp/*,/private/tmp/*
 
 scriptencoding utf-8
+
+let g:jedi#auto_initialization = 1
+let g:jedi#rename_command = "<leader>R"
+let g:jedi#popup_on_dot = 1
+autocmd FileType python let b:did_ftplugin = 1
