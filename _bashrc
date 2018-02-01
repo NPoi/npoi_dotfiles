@@ -5,9 +5,8 @@ export EDITOR='vim'
 # Mac時の設定
 if [ `uname` = "Darwin" ]; then
     alias vi='vim'
-    export PATH=$HOME/bin:/Applications/MacVim.app/Contents/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
+    export PATH=$HOME/bin:/Applications/MacVim.app/Contents/bin:$HOME/Library/Python/2.7/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
     export SUDO_EDITOR='vim'
-    export SUDO_EDITOR=vim
 
     alias pwgen12='pwgen -sy 12 1'
     alias pwgen32='pwgen -sy 32 1'
@@ -17,16 +16,14 @@ if [ `uname` = "Darwin" ]; then
     if [ -f `brew --prefix`/etc/bash_completion ]; then
         . `brew --prefix`/etc/bash_completion
     fi
+
+    source ~/.iterm2_shell_integration.`basename $SHELL`
 fi
 
 [[ -e "/usr/local/bin/aws_completer" ]] && complete -C '/usr/local/bin/aws_completer' aws
 
 alias ls='ls -F -G'
 alias ll='ls -l'
-
-alias calendar='vim -c Calendar'
-
-
 
 # 
 # git
@@ -42,6 +39,10 @@ if [ -e "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
 elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ]; then
     source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 fi
+
+#
+# prompt
+#
 #PS1="\[\e[40m\e[0;40m\][\h@\w]\[\e[0m\]\n\D{%Y/%m/%d} \t\$(__git_ps1) \$ "
 PS1="\
     \[\e[37m\]\t>\[\e[00m\] \
@@ -66,7 +67,7 @@ alias ssync='rsync --rsync-path='\''sudo rsync'\'' -e '\''ssh -t'\'
 # sudoedit コマンドがなければ設定
 SUDOEDIT_PATH=`which sudoedit`
 [[ -z $SUDOEDIT_PATH ]] && alias sudoedit='sudo -e'
-[[ -e "~/.aliases" ]] && source ~/.aliases
+[[ -e $HOME/.aliases ]] && source $HOME/.aliases
 
 eval `ssh-agent` > /dev/null 2>&1
 
@@ -87,25 +88,15 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 # pythonz
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
-#
-# ruby
-# 
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-[[ -s `which rbenv` ]] && eval "$(rbenv init -)"
-alias be='rbenv exec bundle exec'
-alias buni='rbenv exec bundle install --path vendor/bundler'
-
 
 #
 # golang
 #
-export GOPATH=~/usr/local/
+export GOPATH=$HOME/usr/local/
 
 
 # ヒストリーの数
-HISTSIZE=50000
+HISTSIZE=500000
 
 cdd() {
     command cd "$@"
@@ -116,7 +107,7 @@ cdd() {
     return $s
 }
 
-source ~/npoi_dotfiles/fabric-completion.bash
+[[ -s $HOME/npoi_dotfiles/fabric-completion.bash ]] && source $HOME/npoi_dotfiles/fabric-completion.bash
 
 function share_history {
   history -a
@@ -131,12 +122,16 @@ alias ssh='cat ~/.ssh/config.d/config ~/.ssh/config.d/config.wci > ~/.ssh/config
 #
 # docker
 #
-alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work '${DOCKER_STACK_HASH}
+alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work '$DOCKER_STACK_HASH
 alias lman='docker run --rm -it man man'
-source ~/.iterm2_shell_integration.`basename $SHELL`
 
 #
 # nvm
 #
 export NVM_DIR="$HOME/.nvm"
 source "/usr/local/opt/nvm/nvm.sh"
+
+#
+# direnv
+#
+eval "$(direnv hook bash)"
