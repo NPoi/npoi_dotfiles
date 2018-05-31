@@ -17,9 +17,10 @@ if [ `uname` = "Darwin" ]; then
         . `brew --prefix`/etc/bash_completion
     fi
 
-    source ~/.iterm2_shell_integration.`basename $SHELL`
+    [[ -e "${HOME}/.iterm2_shell_integration.bash" ]] && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
+# aws
 [[ -e "/usr/local/bin/aws_completer" ]] && complete -C '/usr/local/bin/aws_completer' aws
 
 alias ls='ls -F -G'
@@ -28,17 +29,15 @@ alias ll='ls -l'
 # 
 # git
 #
-if [ -e "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
-    source /usr/local/etc/bash_completion.d/git-completion.bash
-elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash" ]; then
-    source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
-fi
+[ -s "/usr/local/etc/bash_completion.d/git-completion.bash" ] && source /usr/local/etc/bash_completion.d/git-completion.bash
+[ -s "/Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash" ] && source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 
-if [ -e "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
-    source /usr/local/etc/bash_completion.d/git-prompt.sh
-elif [ -e "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ]; then
-    source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
-fi
+[ -s "/usr/local/etc/bash_completion.d/git-prompt.sh" ] && source /usr/local/etc/bash_completion.d/git-prompt.sh
+[ -s "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ] && source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+
+[ -s "/Users/nakaharadaisuke/.scm_breeze/scm_breeze.sh" ] && source "/Users/nakaharadaisuke/.scm_breeze/scm_breeze.sh"
+
+alias gitroot='cd `(git rev-parse --show-toplevel)`'
 
 #
 # prompt
@@ -58,7 +57,6 @@ PS1="\
         \u "'$(__git_ps1)'" $ \[\e[00m\]"
 # PS1="\D{%Y/%m/%d} \t\n[\h@\w]\$(__git_ps1) \$ "
 
-alias gitroot='cd `(git rev-parse --show-toplevel)`'
 
 
 # rsync
@@ -77,17 +75,12 @@ eval `ssh-agent` > /dev/null 2>&1
 export PYTHONSTARTUP=~/.pythonrc
 export LC_LANG=ja_JP.UTF-8
 export PYTHONIOENCODING=UTF-8
-#export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
-# virtualenv
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
-
-[[ -s `which virtualenvwrapper.sh` ]] && source `which virtualenvwrapper.sh`
-
-# pythonz
-[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
-
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pipenv --completion)"
+[[ -s $HOME/npoi_dotfiles/fabric-completion.bash ]] && source $HOME/npoi_dotfiles/fabric-completion.bash
 
 #
 # golang
@@ -107,7 +100,6 @@ cdd() {
     return $s
 }
 
-[[ -s $HOME/npoi_dotfiles/fabric-completion.bash ]] && source $HOME/npoi_dotfiles/fabric-completion.bash
 
 function share_history {
   history -a
@@ -135,3 +127,10 @@ source "/usr/local/opt/nvm/nvm.sh"
 # direnv
 #
 eval "$(direnv hook bash)"
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then source "$HOME/google-cloud-sdk/path.bash.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/google-cloud-sdk/completion.bash.inc"; fi
