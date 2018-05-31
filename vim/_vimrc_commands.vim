@@ -21,4 +21,8 @@ endfunction
 " 新タブでカレンダー 
 command! CalendarTab :tabe +Calendar
 
+" Markdownとして設定
 command! Markdown :set ft=markdown
+
+" Marked 2でプレビュー
+command! Marked2 :set ft=markdown | if expand("%:p")=='' | :saveas `=tempname()` | endif | :!open -a "marked 2" "%:p"
