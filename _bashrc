@@ -118,16 +118,9 @@ alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work '$DOCKER_
 alias lman='docker run --rm -it man man'
 
 #
-# nvm
-#
-export NVM_DIR="$HOME/.nvm"
-source "/usr/local/opt/nvm/nvm.sh"
-
-#
 # direnv
 #
 eval "$(direnv hook bash)"
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then source "$HOME/google-cloud-sdk/path.bash.inc"; fi
