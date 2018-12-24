@@ -8,7 +8,8 @@ nnoremap    <silent>   <C-C>  :<C-u>Calendar<CR>
 inoremap    <silent>   kj   <C-u><Esc>
 
 " 
-map ¥ <leader>
+map \ <leader>
+map ¥ \
 
 " 大文字Yで行末までヤンク
 nnoremap Y y$
@@ -37,6 +38,9 @@ set pastetoggle=<F10>
 
 " 検索magicモード
 nnoremap / /\v
+
+" SHIFT-Tabでアンインデント
+inoremap <S-Tab> <ESC><<i
 
 " 文字数カウント
 nnoremap <silent> <Space>cc :<C-u>%s/./&/g<CR>:<C-u>noh<CR>

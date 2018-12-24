@@ -14,6 +14,7 @@ set nowrap
 set ambiwidth=double
 set mouse=a
 set notitle
+set vb t_vb=
 
 set breakindent
 
