@@ -1,6 +1,48 @@
-# viモードへ切り替え
-set -o vi
-export EDITOR='vim'
+#
+# Shell基本設定
+#
+set -o vi  # viモードへ切り替え
+export EDITOR='vim'  # デフォルトエディタをvimに
+[[ -e $HOME/.aliases ]] && source $HOME/.aliases  # alias用の外部ファイルがあれば読み込み
+HISTSIZE=500000  # ヒストリーの数
+
+cdd() {
+    command cd "$@"
+    local s=$?
+    if [[ ($s -eq 0) && (${#FUNCNAME[*]} -eq 1) ]]; then
+        history -s cd $(printf "%q" "$PWD")
+    fi
+    return $s
+}
+
+
+function share_history {
+  history -a
+  history -c
+  history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+
+# prompt
+PS1="\
+    \[\e[37m\]\t>\[\e[00m\] \
+    \[\e[1;35m\]\h\[\e[00m\] \
+    [\[\e[1;4;33m\]\w\[\e[00m\]] \n\
+    \`
+    if [ \$? = 0 ]; then
+        echo \[\e[1\;32m\];
+    else
+        echo \[\e[1\;31m\];
+    fi
+    \`\
+        \u "'$(__git_ps1)'" $ \[\e[00m\]"
+
+# sudoedit コマンドがなければ設定
+SUDOEDIT_PATH=`which sudoedit`
+[[ -z $SUDOEDIT_PATH ]] && alias sudoedit='sudo -e'
+
+# - - - - -
 
 # Mac時の設定
 if [ `uname` = "Darwin" ]; then
@@ -21,8 +63,10 @@ if [ `uname` = "Darwin" ]; then
     
 fi
 
-# aws
-[[ -e "/usr/local/bin/aws_completer" ]] && complete -C '/usr/local/bin/aws_completer' aws
+# - - - - -
+#
+# General
+#
 
 alias ls='ls -F -G'
 alias ll='ls -l'
@@ -40,36 +84,18 @@ alias ll='ls -l'
 
 alias gitroot='cd `(git rev-parse --show-toplevel)`'
 
-#
-# prompt
-#
-#PS1="\[\e[40m\e[0;40m\][\h@\w]\[\e[0m\]\n\D{%Y/%m/%d} \t\$(__git_ps1) \$ "
-PS1="\
-    \[\e[37m\]\t>\[\e[00m\] \
-    \[\e[1;35m\]\h\[\e[00m\] \
-    [\[\e[1;4;33m\]\w\[\e[00m\]] \n\
-    \`
-    if [ \$? = 0 ]; then
-        echo \[\e[1\;32m\];
-    else
-        echo \[\e[1\;31m\];
-    fi
-    \`\
-        \u "'$(__git_ps1)'" $ \[\e[00m\]"
-# PS1="\D{%Y/%m/%d} \t\n[\h@\w]\$(__git_ps1) \$ "
-
-
+# Network- - - - -
 
 # rsync
 alias sudosync='rsync --rsync-path='\''sudo rsync'\'' -e '\''ssh -t'\'
 
-# sudoedit コマンドがなければ設定
-SUDOEDIT_PATH=`which sudoedit`
-[[ -z $SUDOEDIT_PATH ]] && alias sudoedit='sudo -e'
-[[ -e $HOME/.aliases ]] && source $HOME/.aliases
-
+# ssh-agent
 eval `ssh-agent` > /dev/null 2>&1
 
+# - - - - -
+
+
+# Language Runtime - - - - -
 #
 # python
 #
@@ -95,48 +121,40 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-
-# ヒストリーの数
-HISTSIZE=500000
-
-cdd() {
-    command cd "$@"
-    local s=$?
-    if [[ ($s -eq 0) && (${#FUNCNAME[*]} -eq 1) ]]; then
-        history -s cd $(printf "%q" "$PWD")
-    fi
-    return $s
-}
-
-
-function share_history {
-  history -a
-  history -c
-  history -r
-}
-PROMPT_COMMAND='share_history'
-shopt -u histappend
-
-
+# Infrastructure  - - - - -
 #
 # docker
 #
 alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work '$DOCKER_STACK_HASH
 alias lman='docker run --rm -it man man'
+alias d='docker'
+alias db='docker build -t ccport/nginx:2.0 .'
+alias de='docker exec -it nginx /bin/bash'
+alias dr='docker rm -f nginx;docker run -d --name nginx -p 8080:80 -p 8443:443 ccport/nginx:2.0'
 
 #
 # kubernetes
 # 
 eval "$(kubectl completion bash)"
 eval "$(kompose completion bash)"
+alias ku=kubectl
 
 #
 # direnv
 #
 eval "$(direnv hook bash)"
 
+# Cloud  - - - - -
+#
+# GCloud
+#
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then source "$HOME/google-cloud-sdk/path.bash.inc"; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/google-cloud-sdk/completion.bash.inc"; fi
+
+#
+# AWS
+#
+[[ -e "/usr/local/bin/aws_completer" ]] && complete -C '/usr/local/bin/aws_completer' aws
