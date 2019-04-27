@@ -1,8 +1,4 @@
-[user]
-	name = Daisuke Nakahara
-	email = nakahara.d@water-cell.jp
 [core]
-	excludesfile = /Users/nakaharadaisuke/.gitignore_global
 	editor = vim -c \"set fenc=utf-8\"
 [color]
 	ui = auto

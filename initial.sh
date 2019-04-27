@@ -4,7 +4,7 @@ set -x
 
 cd $HOME
 
-git clone git@github.com:NPoi/npoi_dotfiles.git npoi_dotfiles
+[ -e "$HOME/npoi_dotfiles" ] || git clone git@github.com:NPoi/npoi_dotfiles.git npoi_dotfiles
 
 ln -s npoi_dotfiles/bin bin
 ln -s npoi_dotfiles/_bashrc_profile .bash_profile
