@@ -11,6 +11,9 @@ inoremap    <silent>   kj   <C-u><Esc>
 map \ <leader>
 map ¥ \
 
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 " 大文字Yで行末までヤンク
 nnoremap Y y$
 

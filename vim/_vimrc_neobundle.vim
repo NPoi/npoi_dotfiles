@@ -54,6 +54,7 @@ NeoBundle 'sukima/xmledit'
 
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-singleton'
 
 " NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'vim-airline/vim-airline'
@@ -126,6 +127,8 @@ NeoBundle 'rbtnn/rabbit-ui-collection.vim'
 NeoBundle 't9md/vim-choosewin'
 
 NeoBundle 'will133/vim-dirdiff'
+
+NeoBundle 'terryma/vim-expand-region'
 
 call neobundle#end()
 

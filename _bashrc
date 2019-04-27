@@ -5,8 +5,13 @@ set -o vi  # viモードへ切り替え
 export LC_LANG=ja_JP.UTF-8  # 言語設定
 export EDITOR='vim'  # デフォルトエディタをvimに
 
+
+
 [[ -e $HOME/.aliases ]] && source $HOME/.aliases  # alias用の外部ファイルがあれば読み込み
+[[ -e $HOME/.envs ]] && source $HOME/.envs  # alias用の外部ファイルがあれば読み込み
 HISTSIZE=500000  # ヒストリーの数
+
+# Functions
 
 cdd() {
     command cd "$@"
@@ -17,17 +22,34 @@ cdd() {
     return $s
 }
 
-function hispecory {
+hispecory() {
     
     sh --rcfile ~/.bashrc -c "$(cat ~/.bash_history | LC_ALL=C sort | uniq |  peco)"
 }    
 
+lossless-search() {
+    local LOSSLESS_BUCKET=$(echo ${LOSSLESS_MUSIC_BUCKET:?バケットが指定されていないです} | sed -E "s/:/\\\\:/g" )
 
-function share_history {
+    aws s3 ls --recursive "${LOSSLESS_MUSIC_BUCKET}" | egrep "Lossless/.*$1" | sed -E "s/ +/ /g" | \
+       sed -E "s:Lossless:${LOSSLESS_BUCKET}Lossless:g" | cut -f 4- -d" "  # | sed -E "s/^/\"/g" | sed -E "s/$/\"/g"
+}
+
+lossless-cp()  (
+    IFS_BACKUP=$IFS
+    IFS=$'\n'
+    for i in $(lossless-search "$1")
+    do
+        aws s3 cp $i $2
+    done
+    IFS=$IFS_BACKUP
+)
+
+share_history() {
     history -a
     history -c
     history -r
 }
+
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 
@@ -55,7 +77,7 @@ SUDOEDIT_PATH=`which sudoedit`
 if [ `uname` = "Darwin" ]; then
     alias vi='vim'
     export PATH=$HOME/bin:/Applications/MacVim.app/Contents/bin:$HOME/Library/Python/2.7/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
-    export SUDO_EDITOR='vim'
+    export SUDO_EDITOR='vim --cmd let{"g:singleton#entrust_pattern"}="."'
 
     alias pwgen12='pwgen -sy 12 1'
     alias pwgen32='pwgen -sy 32 1'
@@ -119,6 +141,7 @@ eval "$(pipenv --completion)"
 # golang
 #
 export GOPATH=$HOME/usr/local/
+export PATH=$PATH:$GOPATH/bin
 
 #
 # Ruby
@@ -126,6 +149,15 @@ export GOPATH=$HOME/usr/local/
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+#
+# Node.js
+#
+NODEBREW_HOME=/usr/local/var/nodebrew/current
+export NODEBREW_HOME
+export NODEBREW_ROOT=/usr/local/var/nodebrew
+
+export PATH=$PATH:$NODEBREW_HOME/bin
 
 # Infrastructure  - - - - -
 #
@@ -144,6 +176,10 @@ alias dr='docker rm -f nginx;docker run -d --name nginx -p 8080:80 -p 8443:443 c
 eval "$(kubectl completion bash)"
 eval "$(kompose completion bash)"
 alias ku=kubectl
+
+if which minikube > /dev/null; then
+    eval $(minikube docker-env)
+fi
 
 #
 # direnv
@@ -164,3 +200,5 @@ if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/googl
 # AWS
 #
 [[ -e "/Users/npoi/.pyenv/shims/aws_completer" ]] && complete -C '/Users/npoi/.pyenv/shims/aws_completer' aws
+
+

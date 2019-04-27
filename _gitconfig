@@ -18,3 +18,5 @@
 [pager]
     diff =
 
+[ghq]
+	root = /Users/npoi/usr/local//src
