@@ -80,7 +80,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'godlygeek/tabular'
-NeoBundle "joker1007/vim-markdown-quote-syntax"
+NeoBundle 'joker1007/vim-markdown-quote-syntax'
 
 " syntaxes/languages
 " ---------
