@@ -1,5 +1,6 @@
 [core]
 	editor = vim -c \"set fenc=utf-8\"
+	excludesfile = .gitignore_global
 [color]
 	ui = auto
 [alias]
@@ -15,4 +16,4 @@
     diff =
 
 [ghq]
-	root = /Users/npoi/usr/local//src
+	root = /Users/npoi/usr/local/src
