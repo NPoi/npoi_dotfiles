@@ -3,7 +3,7 @@
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc) - Vim7用試作
 "
-" Last Change: 09-Mar-2018.
+" Last Change: 19-Feb-2019.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -62,7 +62,8 @@ endif
 
 "---------------------------------------------------------------------------
 " カラー設定:
-colorscheme solarized
+" colorscheme solarized
+colorscheme iceberg
 set background=dark
 
 "---------------------------------------------------------------------------
