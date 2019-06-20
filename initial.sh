@@ -11,6 +11,7 @@ ln -s npoi_dotfiles/_bashrc_profile .bash_profile
 ln -s npoi_dotfiles/_bashrc .bashrc
 ln -s npoi_dotfiles/_vimrc .vimrc
 ln -s npoi_dotfiles/_gvimrc .gvimrc
+ln -s npoi_dotfiles/_digrc .digrc
 
 mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
