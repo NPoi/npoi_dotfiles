@@ -13,4 +13,4 @@ cd path/to/npoi_dotfiles
 
 ## ToDo
 
-- [ ]設定値のsubstenv化
+- [ ] 設定値のsubstenv化
