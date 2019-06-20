@@ -9,8 +9,8 @@ NPoiによる設定ファイル群。
 ```
 cd path/to/npoi_dotfiles
 ./initial.sh
-``
+```
 
 ## ToDo
 
-- 設定値のsubstenv化
+- [ ] 設定値のsubstenv化
