@@ -68,8 +68,11 @@ if !exists('b:quickrun_config')
 endif
 
 let g:quickrun_config["markdown"] = {
-            \     'type': 'markdown/gfm',
-            \     'outputter': 'browser'
+            \ 'outputter' : 'null',
+            \ 'command'   : 'open',
+            \ 'cmdopt'    : '-a',
+            \ 'args'      : 'Marked\ 2',
+            \ 'exec'      : '%c %o %a %s',
             \   }
 
 let g:quickrun_config["html"] = {
@@ -80,6 +83,8 @@ let g:quickrun_config["html"] = {
 "
 " markdown
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_override_foldtext = 0
 
 let g:markdown_quote_syntax_filetypes = {
         \ "sh" : {
