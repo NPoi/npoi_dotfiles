@@ -143,8 +143,10 @@ if which pipenv > /dev/null 2>&1; then eval "$(pipenv --completion)"; fi
 # golang
 #
 # export GOPATH=$HOME/usr/local/
-export GOPATH=$(go env GOPATH)
-export PATH=$PATH:$GOPATH/bin
+if `which go`; then
+    export GOPATH=$(go env GOPATH)
+    export PATH=$PATH:$GOPATH/bin
+fi
 
 #
 # Ruby
