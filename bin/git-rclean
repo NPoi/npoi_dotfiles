@@ -1,8 +1,9 @@
 #!/bin/sh
 
-BRANCH=${1:-"development"}
+DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -f2 -d":" | sed -E "s/ *//")
+BRANCH=${1:-"$DEFAULT_BRANCH"}
 git checkout ${BRANCH}
-git pull
+git pull --rebase
 git remote prune origin
 DEL_BRANCH=`git branch --merged | grep -v ${BRANCH} | grep -v \'*\'`
 if [ -n "$DEL_BRANCH" ]
