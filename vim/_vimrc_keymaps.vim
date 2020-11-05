@@ -91,3 +91,5 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <Del>
 inoremap <C-k> <Esc>ld$a
+
+nnoremap gs :vertical wincmd f<CR>
