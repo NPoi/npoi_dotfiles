@@ -1,0 +1,227 @@
+﻿# 暗黒美夢王設定
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif exceute('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''  
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if   = '''! has('nvim')'''
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if   = '''! has('nvim')'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+if   = '''has('lua')'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+if   = '''has('lua')'''
+
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/vimshell'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+repo = 'Shougo/vinarise'
+
+[[plugins]]
+repo = 'Shougo/neossh.vim'
+
+
+[[plugins]]
+repo = 'ujihisa/vimshell-ssh'
+
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'mattn/vdbi-vim'
+
+[[plugins]]
+repo = 'mattn/calendar-vim'
+
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+
+
+[[plugins]]
+repo = 'sukima/xmledit'
+
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'thinca/vim-singleton'
+
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'thinca/vim-visualstar'
+
+
+# Git
+# ---------
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'gregsexton/gitv'
+
+
+# 整形
+# ---------
+[[plugins]]
+repo = 'vim-scripts/Align'
+
+[[plugins]]
+repo = 'vim-scripts/SQLUtilities'
+
+[[plugins]]
+repo = 'vim-scripts/sudo.vim'
+
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+[[plugins]]
+repo = 'bkad/CamelCaseMotion'
+
+[[plugins]]
+repo = 'banyan/recognize_charcode.vim'
+
+[[plugins]]
+repo = 'istepura/vim-toolbar-icons-silk'
+
+[[plugins]]
+repo = 'davidoc/taskpaper.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'superbrothers/vim-quickrun-markdown-gfm'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'joker1007/vim-markdown-quote-syntax'
+
+
+# syntaxes/languages
+# ---------
+[[plugins]]
+repo = 'fatih/vim-go'
+
+[[plugins]]
+repo = 'aohta/blockdiag.vim'
+
+[[plugins]]
+repo = 'othree/html5.vim'                    # html5
+
+[[plugins]]
+repo = 'vim-scripts/nginx.vim'               # nginx設定ファイル
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'              # CSS3
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'elzr/vim-json'                       # JSON
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'          # TypeScript
+
+[[plugins]]
+repo = 'vim-scripts/python_fold'
+
+[[plugins]]
+repo = 'nvie/vim-flake8'
+
+[[plugins]]
+repo = 'vim-scripts/VOoM'
+
+[[plugins]]
+repo = 'Glench/Vim-Jinja2-Syntax'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+
+# colorschemes
+[[plugins]]
+repo = 'w0ng/vim-hybrid'                     # hybrid
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'    # Solarized
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'                 # iceberg
+
+[[plugins]]
+repo = 'vim-scripts/phd'                     # PhD
+
+[[plugins]]
+repo = 'vim-scripts/summerfruit256.vim'      # summerfruit256
+
+[[plugins]]
+repo = 'jonathanfilip/vim-lucius'
+
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+
+# その他
+[[plugins]]
+repo = 't9md/vim-choosewin'
+
+
+[[plugins]]
+repo = 'will133/vim-dirdiff'
+
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'

@@ -46,4 +46,3 @@ augroup fileTypeIndent
 augroup END
 
 syntax enable
-

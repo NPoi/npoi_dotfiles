@@ -5,7 +5,7 @@ set -o vi  # viモードへ切り替え
 export LC_LANG=ja_JP.UTF-8  # 言語設定
 export EDITOR='vim'  # デフォルトエディタをvimに
 
-
+export XDG_BASE_HOME='~/.config'
 
 [[ -e $HOME/.aliases ]] && source $HOME/.aliases  # alias用の外部ファイルがあれば読み込み
 [[ -e $HOME/.envs ]] && source $HOME/.envs  # alias用の外部ファイルがあれば読み込み
