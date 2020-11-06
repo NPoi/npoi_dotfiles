@@ -1,6 +1,8 @@
 " ***********************************************
 "  .vimrc
 " ***********************************************
+set term=builtin_xterm
+source $HOME/.vim/vimrc_kaoriya.vim
 
 filetype plugin indent off
 
@@ -126,3 +128,17 @@ let g:jedi#auto_initialization = 1
 let g:jedi#rename_command = "<leader>R"
 let g:jedi#popup_on_dot = 1
 autocmd FileType python let b:did_ftplugin = 1
+
+" Terraform
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_fmt_on_save=0
+
+" LSP
+if executable('terraform-lsp')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'terraform-lsp',
+    \ 'cmd': {server_info->['terraform-lsp']},
+    \ 'whitelist': ['terraform','tf'],
+    \ })
+endif

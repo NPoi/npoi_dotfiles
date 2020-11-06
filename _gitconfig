@@ -1,6 +1,6 @@
 [core]
 	editor = vim -c \"set fenc=utf-8\"
-	excludesfile = .gitignore_global
+	excludesFile = /Users/nakaharad/.gitignore_global
 [color]
 	ui = auto
 [alias]
@@ -10,10 +10,3 @@
 	br = branch
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
     root = rev-parse --show-toplevel
-[diff]
-    external = git_diff_wrapper
-[pager]
-    diff =
-
-[ghq]
-	root = /Users/npoi/usr/local/src

@@ -51,6 +51,7 @@ NeoBundle 'mattn/calendar-vim'
 NeoBundle 'mattn/sonictemplate-vim'
 
 NeoBundle 'sukima/xmledit'
+NeoBundle 'Yggdroot/indentLine'
 
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
@@ -109,6 +110,7 @@ NeoBundleLazy 'hynek/vim-python-pep8-indent', {
             \ }
 NeoBundle 'vim-scripts/VOoM'
 NeoBundle 'Glench/Vim-Jinja2-Syntax'
+NeoBundle 'hashivim/vim-terraform'
 
 " colorschemes
 NeoBundle 'w0ng/vim-hybrid'                     " hybrid
@@ -122,7 +124,7 @@ NeoBundle 'scrooloose/syntastic'
 
 " その他
 NeoBundle 'rbtnn/rabbit-ui.vim'
-NeoBundle 'rbtnn/rabbit-ui-collection.vim'
+" NeoBundle 'rbtnn/rabbit-ui-collection.vim'
 
 NeoBundle 't9md/vim-choosewin'
 
@@ -130,6 +132,9 @@ NeoBundle 'will133/vim-dirdiff'
 
 NeoBundle 'terryma/vim-expand-region'
 
-call neobundle#end()
+NeoBundle 'prabirshrestha/async.vim'
+NeoBundle 'prabirshrestha/vim-lsp'
+NeoBundle 'prabirshrestha/asyncomplete.vim'
+NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
 
-filetype plugin indent on
+call neobundle#end()
