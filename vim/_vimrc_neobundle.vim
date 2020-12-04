@@ -55,7 +55,6 @@ NeoBundle 'Yggdroot/indentLine'
 
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'thinca/vim-singleton'
 
 " NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'vim-airline/vim-airline'

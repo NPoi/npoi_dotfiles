@@ -10,3 +10,7 @@
 	br = branch
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
     root = rev-parse --show-toplevel
+    vimdiff = difftool --tool=vimdiff --no-prompt
+[user]
+	name = Nakahara Daisuke
+	email = daisuke.nakahara@mntsq.com

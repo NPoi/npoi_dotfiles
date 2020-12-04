@@ -12,8 +12,6 @@ source $HOME/npoi_dotfiles/vim/_vimrc_basic.vim
 " neobundle.vim設定
 source $HOME/npoi_dotfiles/vim/_vimrc_neobundle.vim
 
-call singleton#enable()
-
 " 補完設定
 source $HOME/npoi_dotfiles/vim/_vimrc_comp.vim
 
