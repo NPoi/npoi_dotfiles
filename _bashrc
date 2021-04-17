@@ -153,6 +153,8 @@ fi
 #
 if which rbenv > /dev/null 2>&1; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/imagemagick@6/lib/pkgconfig"
 
 
 #
@@ -236,3 +238,6 @@ function ghql() {
 
 # bind -x '"\201": ghql'
 # bind '"\C-g":"\201\C-m"'
+
+complete -C /usr/local/Cellar/tfenv/2.0.0/versions/0.12.24/terraform terraform
+# export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"

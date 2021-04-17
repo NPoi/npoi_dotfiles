@@ -13,6 +13,7 @@ brew "cocot"
 brew "coreutils"
 brew "ctags"
 brew "go"
+<<<<<<< Updated upstream
 brew "dep"
 brew "direnv"
 brew "docker-clean"
@@ -69,3 +70,6 @@ mas "Skitch", id: 425955336
 mas "GoodNotes 5", id: 1444383602
 mas "xcode", id: 497799835
 mas "Marked 2", id: 890031187
+=======
+brew "python@3.9"
+>>>>>>> Stashed changes
