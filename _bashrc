@@ -194,11 +194,7 @@ if which direnv > /dev/null 2>&1; then eval "$(direnv hook bash)"; fi
 #
 # Vagrant
 #
-if [ -e /Volumes/Transcend/_vagrant.d/ ]; then
-    export VAGRANT_HOME="/Volumes/Transcend/_vagrant.d/"
-else
-    export VAGRANT_HOME="$HOME/.vagrant.d/"
-fi
+export VAGRANT_HOME="$HOME/.vagrant.d/"
 
 
 # Cloud  - - - - -
