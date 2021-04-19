@@ -13,8 +13,5 @@
     vimdiff = difftool --tool=vimdiff --no-prompt
     gvimdiff = difftool --tool=gvimdiff --no-prompt
 	ag = "!git ls-files | gxargs ag --nogroup --color-match=1\\;31 --color-path=0\\;0 --color-line-number=0\\;0 --pager=\"less -R\""
-[user]
-	name = Nakahara Daisuke
-	email = daisuke.nakahara@mntsq.com
 [grep]
 	lineNumber = true

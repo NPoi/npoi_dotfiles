@@ -1,3 +1,4 @@
+cask_args appdir: "/Applications"
 tap "goodwithtech/dockle"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -17,6 +18,7 @@ brew "go"
 brew "dep"
 brew "direnv"
 brew "docker-clean"
+brew "gdbm"
 brew "freetds"
 brew "ghq"
 brew "git"
@@ -55,7 +57,6 @@ cask "darktable"
 cask "insomnia"
 cask "insomnia-designer"
 cask "minikube"
-cask "srware-iron"
 cask "stats"
 cask "vagrant-manager"
 cask "android-file-transfer"
@@ -70,4 +71,3 @@ mas "Skitch", id: 425955336
 mas "GoodNotes 5", id: 1444383602
 mas "xcode", id: 497799835
 mas "Marked 2", id: 890031187
-brew "python@3.9"
