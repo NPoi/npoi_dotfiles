@@ -1,6 +1,6 @@
 [core]
 	editor = vim -c \"set fenc=utf-8\"
-	excludesFile = /Users/nakaharad/.gitignore_global
+	excludesFile = ~/.gitignore_global
 [color]
 	ui = auto
 [alias]
