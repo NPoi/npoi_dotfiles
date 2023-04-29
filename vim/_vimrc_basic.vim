@@ -14,7 +14,8 @@ set nowrap
 set ambiwidth=double
 set mouse=a
 set notitle
-set vb t_vb=
+set visualbell t_vb=
+set noerrorbells
 
 set breakindent
 
@@ -46,4 +47,3 @@ augroup fileTypeIndent
 augroup END
 
 syntax enable
-
