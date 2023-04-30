@@ -1,3 +1,12 @@
+[secrets]
+	providers = git secrets --aws-provider
+	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+	allowed = AKIAIOSFODNN7EXAMPLE
+	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+[init]
+	templateDir = ~/.git-templates/git-secrets
 [core]
 	editor = vim -c \"set fenc=utf-8\"
 	excludesFile = ~/.gitignore_global
@@ -9,9 +18,9 @@
 	st = status
 	br = branch
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
-    root = rev-parse --show-toplevel
-    vimdiff = difftool --tool=vimdiff --no-prompt
-    gvimdiff = difftool --tool=gvimdiff --no-prompt
+ 	root = rev-parse --show-toplevel
+ 	vimdiff = difftool --tool=vimdiff --no-prompt
+ 	gvimdiff = difftool --tool=gvimdiff --no-prompt
 	ag = "!git ls-files | gxargs ag --nogroup --color-match=1\\;31 --color-path=0\\;0 --color-line-number=0\\;0 --pager=\"less -R\""
 [grep]
 	lineNumber = true
