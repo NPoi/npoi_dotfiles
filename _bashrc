@@ -4,15 +4,13 @@
 set -o vi  # viモードへ切り替え
 export LC_LANG=ja_JP.UTF-8  # 言語設定
 export EDITOR='vim'  # デフォルトエディタをvimに
-
-
-
-[[ -e $HOME/.aliases ]] && source $HOME/.aliases  # alias用の外部ファイルがあれば読み込み
-[[ -e $HOME/.envs ]] && source $HOME/.envs  # alias用の外部ファイルがあれば読み込み
+export SUDO_EDITOR=$EDITOR  # `sudo`時のエディタを共通にする
 HISTSIZE=500000  # ヒストリーの数
 
-# Functions
+[[ -f $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
+[[ -f $HOME/.bash_envs ]] && source $HOME/.envs  # 個別環境用の外部ファイルがあれば読み込み
 
+# Functions
 cdd() {
     command cd "$@"
     local s=$?
@@ -23,7 +21,6 @@ cdd() {
 }
 
 hispecory() {
-    
     sh --rcfile ~/.bashrc -c "$(cat ~/.bash_history | LC_ALL=C sort | uniq |  peco)"
 }    
 
@@ -67,16 +64,12 @@ PS1="\
     \`\
         \u "'$(__git_ps1)'" $ \[\e[00m\]"
 
-# sudoedit コマンドがなければ設定
-SUDOEDIT_PATH=`which sudoedit`
-[[ -z $SUDOEDIT_PATH ]] && alias sudoedit='sudo -e'
-
 # - - - - -
 
 # Mac時の設定
 if [ `uname` = "Darwin" ]; then
     alias vi='vim'
-    export PATH=$HOME/bin:/Applications/MacVim.app/Contents/bin:$HOME/Library/Python/2.7/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
+    export PATH=/Applications/MacVim.app/Contents/bin:$HOME/Library/Python/2.7/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
     export SUDO_EDITOR='vim --cmd let{"g:singleton#entrust_pattern"}="."'
 
     alias pwgen12='pwgen -sy 12 1'
@@ -88,7 +81,7 @@ if [ `uname` = "Darwin" ]; then
         . `brew --prefix`/etc/bash_completion
     fi
 
-    [[ -e "${HOME}/.iterm2_shell_integration.bash" ]] && source "${HOME}/.iterm2_shell_integration.bash"
+    [[ -f "${HOME}/.iterm2_shell_integration.bash" ]] && source "${HOME}/.iterm2_shell_integration.bash"
     
 fi
 
@@ -127,9 +120,7 @@ eval `ssh-agent` > /dev/null 2>&1
 
 
 # Language Runtime - - - - -
-#
 # python
-#
 export PYTHONSTARTUP=~/.pythonrc
 export PYTHONIOENCODING=UTF-8
 
@@ -139,37 +130,18 @@ if which pyenv > /dev/null 2>&1; then eval "$(pyenv init -)"; fi
 if which pipenv > /dev/null 2>&1; then eval "$(pipenv --completion)"; fi
 [[ -s $HOME/npoi_dotfiles/fabric-completion.bash ]] && source $HOME/npoi_dotfiles/fabric-completion.bash
 
-#
-# golang
-#
-# export GOPATH=$HOME/usr/local/
-if which go > /dev/null; then
-    export GOPATH=$(go env GOPATH)
-    export PATH=$PATH:$GOPATH/bin
-fi
-
-#
 # Ruby
-#
 if which rbenv > /dev/null 2>&1; then eval "$(rbenv init -)"; fi
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PKG_CONFIG_PATH="/usr/local/opt/imagemagick@6/lib/pkgconfig"
+export PATH="$HOME/.local/bin:$HOME/.rbenv/bin:$PATH"
 
-
-#
 # Node.js
-#
 NODEBREW_HOME=/usr/local/var/nodebrew/current
 export NODEBREW_HOME
 export NODEBREW_ROOT=/usr/local/var/nodebrew
 
 export PATH=$PATH:$NODEBREW_HOME/bin
 
-# Infrastructure  - - - - -
-#
 # docker
-#
 alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work '$DOCKER_STACK_HASH
 alias lman='docker run --rm -it man man'
 alias d='docker'
@@ -177,50 +149,30 @@ alias db='docker build --squash=true -t'
 alias de='docker exec -it nginx /bin/bash'
 alias dr='docker rm -f nginx;docker run -d --name nginx -p 8080:80 -p 8443:443 ccport/nginx:2.0'
 
-#
 # kubernetes
-# 
-if which kubectl > /dev/null 2>&1; then eval "$(kubectl completion bash)"; fi
+if which kubectl > /dev/null 2>&1; then
+  eval "$(kubectl completion bash)"
+  alias ku=kubectl
+fi
 if which kompose > /dev/null 2>&1; then eval "$(kompose completion bash)"; fi
-alias ku=kubectl
+if which minikube > /dev/null; then eval $(minikube docker-env); fi
 
-if which minikube > /dev/null; then
-    eval $(minikube docker-env)
+# direnv
+if which direnv > /dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+
+  direnv_cd() {
+    cd "$1"
+    eval "$(direnv export bash)"
+  }
 fi
 
-#
-# direnv
-#
-if which direnv > /dev/null 2>&1; then eval "$(direnv hook bash)"; fi
-
-#
 # Vagrant
-#
 export VAGRANT_HOME="$HOME/.vagrant.d/"
 
 
-# Cloud  - - - - -
-#
-# GCloud
-#
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then source "$HOME/google-cloud-sdk/path.bash.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then source "$HOME/google-cloud-sdk/completion.bash.inc"; fi
-
-#
 # AWS
-#
-[[ -e "/Users/npoi/.pyenv/shims/aws_completer" ]] && complete -C '/Users/npoi/.pyenv/shims/aws_completer' aws
-
-
-
-PATH="/Users/npoi/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/npoi/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/npoi/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/npoi/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/npoi/perl5"; export PERL_MM_OPT;
+if which aws_completer > /dev/null 2>&1; then complete -C $(which aws_completer) aws; fi
 
 #
 # ghq
@@ -239,5 +191,9 @@ function ghql() {
 # bind -x '"\201": ghql'
 # bind '"\C-g":"\201\C-m"'
 
-complete -C /usr/local/Cellar/tfenv/2.0.0/versions/0.12.24/terraform terraform
-# export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
+# terraform
+if which terraform > /dev/null 2>&1; then complete -C $(which terraform) terraform; fi
+
+
+# 最後に優先度の高いものを定義
+export PATH="$PATH:$HOME/bin"
