@@ -8,7 +8,7 @@ export SUDO_EDITOR=$EDITOR  # `sudo`時のエディタを共通にする
 HISTSIZE=500000  # ヒストリーの数
 
 [[ -f $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
-[[ -f $HOME/.bash_envs ]] && source $HOME/.envs  # 個別環境用の外部ファイルがあれば読み込み
+[[ -f $HOME/.bash_envs ]] && source $HOME/.bash_envs  # 個別環境用の外部ファイルがあれば読み込み
 
 # Functions
 cdd() {
@@ -72,9 +72,6 @@ if [ `uname` = "Darwin" ]; then
     export PATH=/Applications/MacVim.app/Contents/bin:$HOME/Library/Python/2.7/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
     export SUDO_EDITOR='vim --cmd let{"g:singleton#entrust_pattern"}="."'
 
-    alias pwgen12='pwgen -sy 12 1'
-    alias pwgen32='pwgen -sy 32 1'
-
     alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
     if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -113,8 +110,9 @@ alias gitroot='cd `(git rev-parse --show-toplevel)`'
 # rsync
 alias sudosync='rsync --rsync-path='\''sudo rsync'\'' -e '\''ssh -t'\'
 
-# ssh-agent
+# ssh
 eval `ssh-agent` > /dev/null 2>&1
+alias ssh="ssh-add;ssh"
 
 # - - - - -
 
