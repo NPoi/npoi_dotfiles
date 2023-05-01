@@ -2,6 +2,7 @@
 "  .vimrc
 " ***********************************************
 set term=builtin_xterm
+
 source $HOME/.vim/vimrc_kaoriya.vim
 
 " Vim Basic設定
@@ -68,3 +69,19 @@ let g:quickrun_config["html"] = {
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
 set backupskip=/tmp/*,/private/tmp/*
 scriptencoding utf-8
+
+
+call ddu#custom#patch_global({
+    \   'ui': 'filer',
+    \   'sources': [{'name': 'file', 'params': {}}],
+    \   'sourceOptions': {
+    \     '_': {
+    \       'columns': ['filename'],
+    \     },
+    \   },
+    \   'kindOptions': {
+    \     'file': {
+    \       'defaultAction': 'open',
+    \     },
+    \   }
+    \ })
