@@ -7,6 +7,7 @@
 	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [init]
 	templateDir = ~/.git-templates/git-secrets
+	defaultBranch = main
 [core]
 	editor = vim -c \"set fenc=utf-8\"
 	excludesFile = ~/.gitignore_global
@@ -17,12 +18,17 @@
 	ci = commit
 	st = status
 	br = branch
+	pr = browse-remote --pr
+	peco = "!git branch | peco"
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
- 	root = rev-parse --show-toplevel
- 	vimdiff = difftool --tool=vimdiff --no-prompt
- 	gvimdiff = difftool --tool=gvimdiff --no-prompt
+	root = rev-parse --show-toplevel
+	vimdiff = difftool --tool=vimdiff --no-prompt
+	gvimdiff = difftool --tool=gvimdiff --no-prompt
 	ag = "!git ls-files | gxargs ag --nogroup --color-match=1\\;31 --color-path=0\\;0 --color-line-number=0\\;0 --pager=\"less -R\""
 [grep]
 	lineNumber = true
 [pull]
 	rebase = false
+[push]
+        default = current
+        autoSetupRemote = true
