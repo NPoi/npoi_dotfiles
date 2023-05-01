@@ -1,12 +1,16 @@
 #!/bin/sh
 
 DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -f2 -d":" | sed -E "s/ *//")
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 BRANCH=${1:-"$DEFAULT_BRANCH"}
-git checkout ${BRANCH}
+
+if [ "$BRANCH"z != "$CURRENT_BRANCH"z ]; then
+    git checkout ${BRANCH}
+fi
+
 git pull --rebase
 git remote prune origin
 DEL_BRANCH=`git branch --merged | grep -v ${BRANCH} | grep -v \'*\'`
-if [ -n "$DEL_BRANCH" ]
-then
+if [ -n "$DEL_BRANCH" ]; then
     git branch -d $DEL_BRANCH
 fi
