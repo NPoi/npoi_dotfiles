@@ -8,8 +8,8 @@ source $HOME/.vim/vimrc_kaoriya.vim
 " Vim Basic設定
 source $HOME/npoi_dotfiles/vim/_vimrc_basic.vim
 
-" jetpack.vim設定
-source $HOME/npoi_dotfiles/vim/_vimrc_jetpack.vim
+" vim-plug設定
+source $HOME/npoi_dotfiles/vim/_vimrc_plug.vim
 
 " LSP
 source $HOME/npoi_dotfiles/vim/_vimrc_lsp.vim
