@@ -70,7 +70,7 @@ PS1="\
 if [ `uname` = "Darwin" ]; then
     alias vi='vim'
     export PATH=/Applications/MacVim.app/Contents/bin:$HOME/Library/Python/2.7/bin:$HOME/usr/local/bin:/usr/local/sbin:/usr/local/bin:$PATH
-    export SUDO_EDITOR='vim --cmd let{"g:singleton#entrust_pattern"}="."'
+    # export SUDO_EDITOR='vim --cmd let{"g:singleton#entrust_pattern"}="."'
 
     alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 

@@ -3,8 +3,6 @@
 " ***********************************************
 
 " カレンダー
-nnoremap    <silent>   <C-C>  :<C-u>Calendar<CR>
-
 inoremap    <silent>   kj   <C-u><Esc>
 
 " 
@@ -48,13 +46,6 @@ inoremap <S-Tab> <ESC><<i
 " 文字数カウント
 nnoremap <silent> <Space>cc :<C-u>%s/./&/g<CR>:<C-u>noh<CR>
 
-" VimFilerExplorer の展開
-if has('win32') || has('win64')
-    nnoremap <F3> :<C-u>VimFilerExplorer E:\\workspace<CR>
-elseif has('unix')
-    nnoremap <F3> :<C-u>VimFilerExplorer ~/workspace<CR>
-endif
-
 " camelcasemotion設定
 omap <silent> iw <Plug>CamelCaseMotion_iw
 vmap <silent> iw <Plug>CamelCaseMotion_iw
@@ -66,30 +57,3 @@ vmap <silent> ie <Plug>CamelCaseMotion_ie
 map <silent> w <Plug>CamelCaseMotion_w
 map <silent> b <Plug>CamelCaseMotion_b
 map <silent> e <Plug>CamelCaseMotion_e
-
-" Gitvキーバインド
-function! GitvGetCurrentHash()
-  return matchstr(getline('.'), '\[\zs.\{7\}\ze\]$')
-endfunction
-
-augroup Gitv
-  autocmd!
-  autocmd FileType gitv call s:my_gitv_settings()
-augroup END
-function! s:my_gitv_settings()
-  nnoremap <buffer> <Space>rb :<C-u>Git rebase <C-r>=GitvGetCurrentHash()<CR><CR>
-  nnoremap <buffer> <Space>R :<C-u>Git revert <C-r>=GitvGetCurrentHash()<CR><CR>
-  nnoremap <buffer> <Space>h :<C-u>Git cherry-pick <C-r>=GitvGetCurrentHash()<CR><CR>
-  nnoremap <buffer> <Space>rh :<C-u>Git reset --hard <C-r>=GitvGetCurrentHash()<CR>
-endfunction
-
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-inoremap <C-d> <Del>
-inoremap <C-k> <Esc>ld$a
-
-nnoremap gs :vertical wincmd f<CR>
