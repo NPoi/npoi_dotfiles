@@ -3,8 +3,6 @@
 " ***********************************************
 set term=builtin_xterm
 
-source $HOME/.vim/vimrc_kaoriya.vim
-
 " Vim Basic設定
 source $HOME/npoi_dotfiles/vim/_vimrc_basic.vim
 
@@ -13,6 +11,9 @@ source $HOME/npoi_dotfiles/vim/_vimrc_plug.vim
 
 " LSP
 source $HOME/npoi_dotfiles/vim/_vimrc_lsp.vim
+
+" ddu-ui-filer設定
+source $HOME/npoi_dotfiles/vim/_vimrc_ddu_ui_filer.vim
 
 " オリジナルコマンド系
 source $HOME/npoi_dotfiles/vim/_vimrc_commands.vim

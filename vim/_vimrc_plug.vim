@@ -1,4 +1,5 @@
 ﻿call plug#begin()
+Plug 'koron/vim-kaoriya'
 Plug 'mattn/sonictemplate-vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
