@@ -1,5 +1,7 @@
 # npoi_dotfiles
 
+#self
+
 ## Summary
 
 NPoiによる設定ファイル群。
