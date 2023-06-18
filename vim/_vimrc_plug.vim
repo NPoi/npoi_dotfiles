@@ -1,10 +1,26 @@
 ﻿call plug#begin()
 Plug 'mattn/sonictemplate-vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-lsp-icons'
+
+
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+Plug 'Shougo/pum.vim'
+"" カーソル周辺の既出単語を補完するsource
+Plug 'Shougo/ddc-around'
+"" ファイル名を補完するsource
+Plug 'LumaKernel/ddc-file'
+"" 入力中の単語を補完の対象にするfilter
+Plug 'Shougo/ddc-matcher_head'
+"" 補完候補を適切にソートするfilter
+Plug 'Shougo/ddc-sorter_rank'
+"" 補完候補の重複を防ぐためのfilter
+Plug 'Shougo/ddc-converter_remove_overlap'
+"" Install your UIs
+Plug 'Shougo/ddc-ui-native'
+Plug 'shun/ddc-vim-lsp'
 
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
@@ -15,8 +31,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bkad/CamelCaseMotion'
 Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go'
-Plug 'vim-denops/denops.vim'
-Plug 'vim-denops/denops-helloworld.vim'
 Plug 'Shougo/ddu.vim'
 Plug 'Shougo/ddu-source-file'
 Plug 'Shougo/ddu-kind-file'
