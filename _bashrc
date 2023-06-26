@@ -74,7 +74,7 @@ if [ `uname` = "Darwin" ]; then
 
     alias ctags='/usr/local/Cellar/ctags/5.8_1/bin/ctags'
 
-    [[ -r "/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
+    [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && source "/usr/local/etc/profile.d/bash_completion.sh"
 
     [[ -f "${HOME}/.iterm2_shell_integration.bash" ]] && source "${HOME}/.iterm2_shell_integration.bash"
     

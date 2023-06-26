@@ -19,7 +19,7 @@
 	st = status
 	br = browse-remote
 	pr = browse-remote --pr
-	peco = "!git branch | peco"
+	peco = "!git checkout $(git branch | peco)"
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
 	root = rev-parse --show-toplevel
 	vimdiff = difftool --tool=vimdiff --no-prompt
