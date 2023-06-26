@@ -1,7 +1,7 @@
 """
 {{_name_}}
 """
-from invoke import tasks
+from invoke import task
 
 @task
 def {{_input_:task_name}}(c):
