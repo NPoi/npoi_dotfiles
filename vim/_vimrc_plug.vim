@@ -43,6 +43,7 @@ Plug 'will133/vim-dirdiff'
 Plug 'banyan/recognize_charcode.vim'
 Plug 't9md/vim-choosewin'
 Plug 'hashivim/vim-terraform'
+Plug 'github/copilot.vim'
 
 Plug 'w0ng/vim-hybrid'                     " hybrid
 Plug 'altercation/vim-colors-solarized'    " Solarized

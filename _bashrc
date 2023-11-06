@@ -200,3 +200,5 @@ if which terraform > /dev/null 2>&1; then complete -C $(which terraform) terrafo
 
 # 最後に優先度の高いものを定義し直し
 export PATH="$PATH:$HOME/bin"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
