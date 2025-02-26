@@ -142,7 +142,7 @@ export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # go
-export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # docker
 alias dj='docker run -it --rm -p 8888:8888 -v $(pwd):/home/jovyan/work '$DOCKER_STACK_HASH
@@ -202,3 +202,6 @@ if which terraform > /dev/null 2>&1; then complete -C $(which terraform) terrafo
 export PATH="$PATH:$HOME/bin"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+export FLYCTL_INSTALL="/home/npoi/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
