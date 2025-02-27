@@ -52,15 +52,7 @@ return require("lazy").setup({
   { "fatih/vim-go", ft = "go" },  -- Goファイルの時だけ読み込む
   
   -- DDU関連プラグイン
-  { 
-    "Shougo/ddu.vim",
-    dependencies = {
-      "Shougo/ddu-source-file",
-      "Shougo/ddu-kind-file",
-      "Shougo/ddu-column-filename",
-      "Shougo/ddu-ui-filer",
-    }
-  },
+  require("user.plugins.ddu"),
   
   -- その他のユーティリティ
   { "vim-voom/VOoM" },
@@ -70,6 +62,7 @@ return require("lazy").setup({
   { "t9md/vim-choosewin" },
   { "hashivim/vim-terraform", ft = "terraform" },
   { "github/copilot.vim" },
+  require("user.plugins.avante"),
   
   -- カラースキーム
   { "w0ng/vim-hybrid" },
@@ -77,5 +70,5 @@ return require("lazy").setup({
   { "cocopon/iceberg.vim" },
   { "vim-scripts/phd" },
   { "vim-scripts/summerfruit256.vim" },
-  { "jonathanfilip/vim-lucius" },
+  { "jonathanfilip/vim-lucius" }
 })

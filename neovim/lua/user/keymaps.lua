@@ -11,9 +11,6 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- カレンダー
-map('i', 'kj', '<C-u><Esc>')
-
 -- leaderキーの設定
 vim.g.mapleader = '\\'
 map('', '¥', '\\')
@@ -33,7 +30,9 @@ if vim.fn.has("gui_running") == 1 then
   map('n', '<C-Tab>', 'gt')
   map('n', '<C-S-Tab>', 'gT')
 else
-  map('n', '<C-1><tab>', 'gt')
+  -- ターミナルでのタブ切り替え
+  map('n', '<leader>tn', 'gt')  -- 次のタブへ
+  map('n', '<leader>tp', 'gT')  -- 前のタブへ
 end
 
 -- vimrc系編集
@@ -45,7 +44,7 @@ map('n', '<Space>rv', ':<C-u>source $MYVIMRC<CR>')
 map('i', '<F10>', '<Esc>:<C-u>redraw<CR>')
 
 -- F10でpasteモード切り替え
-vim.opt.pastetoggle = '<F10>'
+-- vim.opt.pastetoggle = '<F10>'
 
 -- 検索magicモード
 map('n', '/', '/\\v')
@@ -67,5 +66,3 @@ map('v', 'ie', '<Plug>CamelCaseMotion_ie', { noremap = false })
 map('', 'w', '<Plug>CamelCaseMotion_w', { noremap = false })
 map('', 'b', '<Plug>CamelCaseMotion_b', { noremap = false })
 map('', 'e', '<Plug>CamelCaseMotion_e', { noremap = false })
-
-return {}
