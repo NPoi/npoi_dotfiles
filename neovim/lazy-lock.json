@@ -1,7 +1,7 @@
 {
   "CamelCaseMotion": { "branch": "master", "commit": "de439d7c06cffd0839a29045a103fe4b44b15cdc" },
   "VOoM": { "branch": "master", "commit": "423600d0ab98254bae6fa2ca60d06057ecfb748a" },
-  "avante.nvim": { "branch": "main", "commit": "e69e7eceebde1499df5b118a15d9883e026e7394" },
+  "avante.nvim": { "branch": "main", "commit": "ebadba7420a5f9b85829273b8c9cd2be56d9b074" },
   "copilot.lua": { "branch": "master", "commit": "30321e33b03cb924fdcd6a806a0dc6fa0b0eafb9" },
   "copilot.vim": { "branch": "release", "commit": "cd7f01009fb7b30e22840cadc4faad88b05c6eef" },
   "ddc-around": { "branch": "main", "commit": "32d54dc188b50bcd64f7b410c04aa4ec567ae47f" },
@@ -27,7 +27,7 @@
   "mini.pick": { "branch": "main", "commit": "bdd189e6b7741177db53875cbc6071f1c8dc6fbd" },
   "nui.nvim": { "branch": "main", "commit": "53e907ffe5eedebdca1cd503b00aa8692068ca46" },
   "nvim-cmp": { "branch": "main", "commit": "5a11682453ac6b13dbf32cd403da4ee9c07ef1c3" },
-  "nvim-treesitter": { "branch": "master", "commit": "8f87d28442f7f91347e993661c319135f47729c7" },
+  "nvim-treesitter": { "branch": "master", "commit": "89eed3572d041c423d14f9ac94086723b338b853" },
   "nvim-web-devicons": { "branch": "master", "commit": "1020869742ecb191f260818234517f4a1515cfe8" },
   "phd": { "branch": "master", "commit": "dd6642acdaa8fbb36ee18e5a07add13dbb450192" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },

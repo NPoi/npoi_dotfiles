@@ -17,7 +17,23 @@ return {
             },
             keymaps = {
                 apply_action = "a",  -- 'a'キーでアクションを適用
+                cancel = "q",        -- 'q'キーでキャンセル
+                toggle_diff = "d",   -- 'd'キーで差分表示の切り替え
+                toggle_preview = "p", -- 'p'キーでプレビューの切り替え
             },
+            ui = {
+                width = 0.8,         -- UIの幅（画面の80%）
+                height = 0.8,        -- UIの高さ（画面の80%）
+                border = "rounded",  -- 角丸のボーダー
+                title = "Avante",    -- UIのタイトル
+            },
+            code_action = {
+                auto_preview = true, -- コードアクションの自動プレビュー
+            },
+            file_selector = {
+                provider = "telescope", -- ファイル選択にTelescopeを使用
+            },
+
 
         },
         -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
