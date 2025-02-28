@@ -33,8 +33,28 @@ return {
             file_selector = {
                 provider = "telescope", -- ファイル選択にTelescopeを使用
             },
-
-
+            windows = {
+                sidebar_header = {
+                    enabled = true, -- true, false to enable/disable the header
+                    align = "center", -- left, center, right for title
+                    rounded = true,
+                },
+                input = {
+                    prefix = "> ",
+                    height = 8, -- Height of the input window in vertical layout
+                },
+                edit = {
+                    border = "rounded",
+                    start_insert = true, -- Start insert mode when opening the edit window
+                },
+                ask = {
+                    floating = true, -- Open the 'AvanteAsk' prompt in a floating window
+                    start_insert = true, -- Start insert mode when opening the ask window
+                    border = "rounded",
+                    ---@type "ours" | "theirs"
+                    focus_on_apply = "ours", -- which diff to focus after applying
+                },
+            },
         },
         -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
         build = "make",

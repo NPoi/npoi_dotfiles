@@ -42,11 +42,14 @@ return {
       -- ddu filerの自動更新設定
       local ddu_group = vim.api.nvim_create_augroup('ddu_filer_settings', { clear = true })
 
+      -- ddu-filerバッファ内でのみ自動更新を行う
       vim.api.nvim_create_autocmd({'TabEnter', 'CursorHold', 'FocusGained'}, {
         group = ddu_group,
-        pattern = '<buffer>',
+        pattern = 'ddu-filer',
         callback = function()
-          vim.fn['ddu#ui#filer#do_action']('checkItems')
+          if vim.fn.exists('*ddu#ui#filer#do_action') == 1 then
+            vim.fn['ddu#ui#filer#do_action']('checkItems')
+          end
         end,
       })
 
