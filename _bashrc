@@ -99,7 +99,7 @@ alias ll='ls -l'
 [ -s "/Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh" ] && source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 [ -s "/usr/share/git-core/contrib/completion/git-prompt.sh" ] && source /usr/share/git-core/contrib/completion/git-prompt.sh
 
-[ -s "/Users/nakaharadaisuke/.scm_breeze/scm_breeze.sh" ] && source "/Users/nakaharadaisuke/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
 alias gitroot='cd `(git rev-parse --show-toplevel)`'
 
