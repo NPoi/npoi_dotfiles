@@ -9,12 +9,12 @@ cd $HOME
 ln -s npoi_dotfiles/bin bin
 ln -s npoi_dotfiles/_bashrc_profile .bash_profile
 ln -s npoi_dotfiles/_bashrc .bashrc
-ln -s npoi_dotfiles/_vimrc .vimrc
-ln -s npoi_dotfiles/_gvimrc .gvimrc
-ln -s npoi_dotfiles/_digrc .digrc
+# ln -s npoi_dotfiles/_vimrc .vimrc
+# ln -s npoi_dotfiles/_gvimrc .gvimrc
+# ln -s npoi_dotfiles/_digrc .digrc
 
-mkdir -p ~/.vim/bundle
-git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+# mkdir -p ~/.vim/bundle
+# git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 mkdir -p ~/usr/local/src
 mkdir -p ~/usr/local/bin
