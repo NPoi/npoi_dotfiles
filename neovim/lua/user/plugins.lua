@@ -60,9 +60,23 @@ return require("lazy").setup({
   { "will133/vim-dirdiff" },
   { "banyan/recognize_charcode.vim" },
   { "t9md/vim-choosewin" },
+  { "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      terminal = {
+        win = {
+          wo = {
+            list = false,
+            listchars = "tab:  ,extends:>,precedes:<",
+            fillchars = "eob: ,lastline: ",
+          },
+        },
+      },
+    },
+  },
   { "hashivim/vim-terraform", ft = "terraform" },
-  { "github/copilot.vim" },
-  require("user.plugins.avante"),
+  require("user.plugins.claudecode"),
   
   -- カラースキーム
   { "w0ng/vim-hybrid" },

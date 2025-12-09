@@ -215,3 +215,5 @@ source /home/nakahara/.local/share/bash-completion/completions/deno.bash
 
 export DENO_CERT="/etc/ssl/certs/zs.pem"
 export DENO_TLS_CA_STORE="system"
+
+alias claude="$HOME/.claude/local/claude"

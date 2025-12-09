@@ -12,7 +12,9 @@ opt.breakindent = true      -- 折り返し時にインデントを保持
 opt.modeline = true         -- モードライン有効
 opt.listchars = {           -- 不可視文字の表示設定
   eol = "¬",
-  tab = "▸\\"
+  tab = "▸ ",
+  extends = ">",
+  precedes = "<",
 }
 opt.mouse = "a"             -- マウス操作を全モードで有効化
 opt.ambiwidth = "double"    -- 全角文字の幅を2に設定
