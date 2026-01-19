@@ -20,6 +20,7 @@ return require("lazy").setup({
   -- 基本プラグイン
   { "koron/vim-kaoriya" },
   { "mattn/sonictemplate-vim" },
+  require("user.plugins.lualine"),
   
   -- LSP関連プラグイン
   { "prabirshrestha/vim-lsp" },
@@ -43,10 +44,6 @@ return require("lazy").setup({
   
   -- ユーティリティ
   { "thinca/vim-quickrun" },
-  { 
-    "vim-airline/vim-airline",
-    dependencies = { "vim-airline/vim-airline-themes" }
-  },
   { "bkad/CamelCaseMotion" },
   { "tpope/vim-surround" },
   { "fatih/vim-go", ft = "go" },  -- Goファイルの時だけ読み込む

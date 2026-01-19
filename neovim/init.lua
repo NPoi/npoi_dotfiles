@@ -11,3 +11,5 @@ require('user.commands')
 
 -- プラグイン設定を読み込む
 require('user.plugins')
+
+vim.cmd[[colorscheme iceberg]]

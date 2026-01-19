@@ -8,9 +8,9 @@ return {
         "folke/snacks.nvim",
     },
     opts = {
-        terminal_cmd = "~/.claude/local/claude", -- Point to local installation
+        terminal_cmd = "/home/nakahara/.claude/local/claude", -- Point to local installation
         terminal = {
-            provider = "native",
+            provider = "snacks",
         },
     },
     keys = {
